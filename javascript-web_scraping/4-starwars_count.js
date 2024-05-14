@@ -4,7 +4,7 @@ const request = require('request');
 const args = process.argv;
 
 // Request URL
-const url2 = '"https://swapi-api.hbtn.io/api/people/18/"';
+const url2 = 'https://swapi-api.hbtn.io/api/people/18/';
 
 let i = 0; // Declare i
 let val;
