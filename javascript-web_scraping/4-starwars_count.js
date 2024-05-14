@@ -12,7 +12,7 @@ let val;
 request(args[2], (error, response, body) => {
   // Printing the error if occurred
   if (error) {
-    console.log(error);
+    console.error(error);
   } else {
     const data = JSON.parse(body);
     const data2 = data.results;
