@@ -6,7 +6,7 @@ const args = process.argv;
 // Request URL
 const url2 = 'https://swapi-api.hbtn.io/api/people/18/';
 
-let i = 0; // Declare i
+let i = 0;
 let val;
 
 request(args[2], (error, response, body) => {
@@ -18,7 +18,6 @@ request(args[2], (error, response, body) => {
     const data2 = data.results;
     const vals = Object.values(data2);
     for (val of vals) {
-      // Check if the characters array includes a name that matches url2
       if (val.characters.includes(url2)) {
         i += 1;
       }
