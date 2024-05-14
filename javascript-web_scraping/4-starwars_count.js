@@ -19,7 +19,7 @@ request(args[2], (error, response, body) => {
     for (val of vals) {
       // Check if the characters array includes a name that matches url2
       if (val.characters.includes(url2)) {
-        i += 1;
+        i++;
       }
     }
     console.log(i);
