@@ -16,5 +16,5 @@ request(url, (err, res, body) => {
     });
   });
 
-  console.log(count + ' films feature Wedge Antilles.');
+  console.log(count);
 });
