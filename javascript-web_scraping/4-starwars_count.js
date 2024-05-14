@@ -23,6 +23,6 @@ request(args[2], (error, response, body) => {
         i += 1;
       }
     }
+    console.log(i);
   }
-  console.log(i);
 });
