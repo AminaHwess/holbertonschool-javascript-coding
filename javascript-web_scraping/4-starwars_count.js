@@ -7,7 +7,7 @@ const args = process.argv;
 const url2 = 'https://swapi-api.hbtn.io/api/people/18/';
 
 let i = 0; // Declare i
-var val;
+let val;
 
 request(args[2], (error, response, body) => {
   // Printing the error if occurred
