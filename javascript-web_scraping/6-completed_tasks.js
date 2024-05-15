@@ -1,8 +1,7 @@
 #!/usr/bin/node
 
-const request = require('request');
+const request = require("request");
 const args = process.argv;
-let j = 0;
 const userCountDict = {}; // Object to store user IDs and counts
 
 request(args[2], (error, response, body) => {
@@ -11,21 +10,16 @@ request(args[2], (error, response, body) => {
     console.log(error);
   } else {
     const data = JSON.parse(body);
-    let currentUser = data[0].userId;
     for (let i = 0; i < data.length; i++) {
-      if (data[i].userId === currentUser) {
-        if (data[i].completed === true) {
-          j++;
-        }
-      } else {
-        userCountDict[currentUser] = j;
-        currentUser = data[i].userId;
-        j = data[i].completed === true ? 1 : 0;
+      const currentUser = data[i].userId;
+      if (!userCountDict[currentUser]) {
+        userCountDict[currentUser] = 0;
+      }
+      if (data[i].completed === true) {
+        userCountDict[currentUser]++;
       }
     }
-    // Assign the count for the last user
-    userCountDict[currentUser] = j;
-
+    
     // Print the dictionary
     console.log(userCountDict);
   }
