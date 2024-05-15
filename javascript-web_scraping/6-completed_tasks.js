@@ -12,7 +12,7 @@ request(args[2], (error, response, body) => {
     const data = JSON.parse(body);
     for (let i = 0; i < data.length; i++) {
       const currentUser = data[i].userId;
-      if (userCountDict[currentUser] === undefined) {
+      if (!userCountDict[currentUser]) {
         userCountDict[currentUser] = 0;
       }
       if (data[i].completed === true) {
