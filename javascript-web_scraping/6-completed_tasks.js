@@ -1,6 +1,6 @@
 #!/usr/bin/node
 
-const request = require("request");
+const request = require('request');
 const args = process.argv;
 const userCountDict = {}; // Object to store user IDs and counts
 
@@ -19,7 +19,7 @@ request(args[2], (error, response, body) => {
         userCountDict[currentUser]++;
       }
     }
-    
+
     // Print the dictionary
     console.log(userCountDict);
   }
