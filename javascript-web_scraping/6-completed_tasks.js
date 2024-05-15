@@ -11,15 +11,14 @@ request(args[2], (error, response, body) => {
   } else {
     const data = JSON.parse(body);
     for (let i = 0; i < data.length; i++) {
-      if (!userCountDict[data[i].userId]) {
-        userCountDict[data[i].userId] = 0;
+      const currentUser = data[i].userId;
+      if (!userCountDict[currentUser]) {
+        userCountDict[currentUser] = 0;
       }
       if (data[i].completed === true) {
-        userCountDict[data[i].userId]++;
+        userCountDict[currentUser]++;
       }
     }
-
-    // Print the dictionary
-    console.log(userCountDict);
   }
+  console.log(userCountDict);
 });
