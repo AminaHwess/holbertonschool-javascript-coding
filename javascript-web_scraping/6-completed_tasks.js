@@ -11,7 +11,6 @@ request(args[2], (error, response, body) => {
     console.log(error);
   } else {
     const data = JSON.parse(body);
-    // Assuming data is sorted by userId
     let currentUser = data[0].userId;
     for (let i = 0; i < data.length; i++) {
       if (data[i].userId === currentUser) {
@@ -19,7 +18,7 @@ request(args[2], (error, response, body) => {
           j++;
         }
       } else {
-        userCountDict[currentUser] = j; // Assign count to user ID in dictionary
+        userCountDict[currentUser] = j;
         currentUser = data[i].userId;
         j = data[i].completed === true ? 1 : 0;
       }
