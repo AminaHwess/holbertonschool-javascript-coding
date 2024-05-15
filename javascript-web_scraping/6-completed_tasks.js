@@ -11,12 +11,11 @@ request(args[2], (error, response, body) => {
   } else {
     const data = JSON.parse(body);
     for (let i = 0; i < data.length; i++) {
-      const currentUser = data[i].userId;
-      if (!userCountDict[currentUser]) {
-        userCountDict[currentUser] = 0;
+      if (!userCountDict[data[i].userId]) {
+        userCountDict[data[i].userId] = 0;
       }
       if (data[i].completed === true) {
-        userCountDict[currentUser]++;
+        userCountDict[data[i].userId]++;
       }
     }
 
