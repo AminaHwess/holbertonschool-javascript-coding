@@ -1,27 +1,24 @@
 #!/usr/bin/node
 
 const request = require('request');
-const args = process.argv;
+const starWarsUri = process.argv[2];
+let times = 0;
 
-// Request URL
-const url2 = 'https://swapi-api.hbtn.io/api/people/18/';
+request(starWarsUri, function (_err, _res, body) {
+  body = JSON.parse(body).results;
 
-let i = 0; // Declare i
-let val;
+  for (let i = 0; i < body.length; ++i) {
+    const characters = body[i].characters;
 
-request(args[2], (error, response, body) => {
-  // Printing the error if occurred
-  if (error) {
-    console.error(error);
-  } else {
-    const data = JSON.parse(body).results;
-    const vals = Object.values(data);
-    for (val of vals) {
-      // Check if the characters array includes a name that matches url2
-      if (val.characters.includes(url2)) {
-        i++;
+    for (let j = 0; j < characters.length; ++j) {
+      const character = characters[j];
+      const characterId = character.split('/')[5];
+
+      if (characterId === '18') {
+        times += 1;
       }
     }
-    console.log(i);
   }
+
+  console.log(times);
 });
