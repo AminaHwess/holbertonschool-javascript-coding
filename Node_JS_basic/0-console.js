@@ -1,5 +1,5 @@
 function displayMessage(ggpmd) {
-    process.stdout.write(ggpmd);
+    console.log(ggpmd);
 };
 
 module.exports = displayMessage;
