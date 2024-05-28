@@ -1,3 +1,5 @@
-module.exports = function displayMessage(ggpmd) {
-  process.stdout.write(ggpmd);
+function displayMessage(ggpmd) {
+    process.stdout.write(ggpmd);
 };
+
+module.exports = displayMessage();
